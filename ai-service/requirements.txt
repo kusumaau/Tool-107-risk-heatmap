@@ -1,0 +1,8 @@
+flask==3.0.0
+flask-limiter==3.5.0
+groq==1.1.2
+python-dotenv==1.2.2
+requests==2.31.0
+sentence-transformers==5.4.1
+torch==2.11.0
+transformers==5.6.2
