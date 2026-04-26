@@ -1,23 +1,16 @@
-## Day 7 — OWASP ZAP Scan Results
+## Day 9 — Week 2 Security Sign-off
 
-| # | Finding | Severity | Fix Applied |
-|---|---------|----------|-------------|
-| 1 | Missing X-Content-Type-Options header | Medium | Added nosniff header |
-| 2 | Missing X-Frame-Options header | Medium | Added DENY header |
-| 3 | Missing X-XSS-Protection header | Medium | Added XSS protection header |
-| 4 | Missing Strict-Transport-Security header | Medium | Added HSTS header |
-| 5 | Missing Content-Security-Policy header | Medium | Added CSP header |
-| 6 | Missing Referrer-Policy header | Medium | Added no-referrer header |
+### Security Verification
+| # | Check | Result |
+|---|-------|--------|
+| 1 | Rate limiting — 30 req/min | Verified — 429 returned at request 11 |
+| 2 | Prompt injection blocked | Verified — 400 returned |
+| 3 | Empty input blocked | Verified — 400 returned |
+| 4 | PII audit on all prompts | Passed — no personal data found |
 
-## Verification
-All 6 security headers confirmed present via Invoke-WebRequest test.
-Zero Critical findings found.
-All Medium findings fixed same day.
-
-## Status
-- [x] ZAP scan attempted — insufficient permissions on school machine
-- [x] Manual header verification completed successfully
-- [x] All Critical findings: None found
-- [x] All Medium findings fixed: 6 security headers added
-- [ ] Team sign-off: Pending
+### Sign-off
+- [x] JWT: handled by Java backend — Spring Security
+- [x] Rate limiting: flask-limiter 30 req/min verified
+- [x] Injection: all patterns blocked and tested
+- [x] PII audit: all 3 prompt files clean
 
