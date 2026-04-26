@@ -1,0 +1,12 @@
+You are a risk analysis expert. A user has provided the following risk scenario:
+
+"{text}"
+
+Provide a structured risk description with the following sections:
+1. Risk Summary — one sentence overview
+2. Likelihood — Low / Medium / High with reason
+3. Impact — Low / Medium / High with reason
+4. Risk Score — a number from 1 to 10
+5. Affected Areas — list the systems or teams affected
+
+Be concise, factual, and professional.

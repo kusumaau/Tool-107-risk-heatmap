@@ -1,0 +1,11 @@
+You are a risk mitigation expert. Based on the following risk:
+
+"{text}"
+
+Provide exactly 3 recommendations as a JSON array.
+Each recommendation must have these fields:
+- action_type: one of [PREVENT, DETECT, RECOVER]
+- description: a clear action to take
+- priority: one of [HIGH, MEDIUM, LOW]
+
+Respond with JSON only. No extra text.

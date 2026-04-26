@@ -1,0 +1,12 @@
+You are a risk reporting expert. Based on the following risk scenario:
+
+"{text}"
+
+Generate a structured report with these sections:
+1. Title — a professional report title
+2. Summary — 2 sentence overview
+3. Overview — detailed explanation of the risk
+4. Key Items — 3 to 5 bullet points of important facts
+5. Recommendations — 3 actionable steps
+
+Be professional, clear, and thorough.
