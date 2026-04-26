@@ -1,7 +1,23 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from routes.describe import describe_bp
+from routes.recommend import recommend_bp
+from routes.report import report_bp
+import logging
+
+logger = logging.getLogger(__name__)
+
+def preload_models():
+    try:
+        logger.info("Pre-loading sentence-transformers model...")
+        from sentence_transformers import SentenceTransformer
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+        logger.info("Model pre-loaded successfully")
+        return model
+    except Exception as e:
+        logger.error(f"Model pre-load failed: {e}")
+        return None
 
 app = Flask(__name__)
 
@@ -23,6 +39,11 @@ def add_security_headers(response):
     return response
 
 app.register_blueprint(describe_bp)
+app.register_blueprint(recommend_bp)
+app.register_blueprint(report_bp)
+
+with app.app_context():
+    preload_models()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
